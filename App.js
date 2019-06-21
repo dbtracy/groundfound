@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, Text, View, Button } from "react-native";
+import { Text, View, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import DetailsScreen from "./app/components/DetailsScreen";

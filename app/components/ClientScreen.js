@@ -15,27 +15,22 @@ export default class ClientScreen extends Component {
   }
   async componentDidMount() {
     console.log("IM IN HERE!!!");
-    const clients = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-    console.log(clients);
-    this.setState({
-      clients: clients
-    });
+    try {
+      const clients = await axios.get("http://localhost:8080/api/client");
+      console.log(clients.data);
+      this.setState({
+        clients: clients.data
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  // fetchClients() {
-  //   const clients = await axios.get("/");
-  //   this.setState({
-  //     clients: clients
-  //   });
-  // }
 
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         {this.state.clients.map(client => {
-          return <Text>{client.title}</Text>;
+          return <Text>{client.firstName}</Text>;
         })}
       </View>
     );

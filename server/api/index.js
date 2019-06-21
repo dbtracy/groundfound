@@ -1,7 +1,7 @@
 const router = require("express").Router();
 module.exports = router;
 
-router.use("/clients", require("./clients"));
+router.use("/client", require("./client"));
 router.use((req, res, next) => {
   const error = new Error("Not Found");
   error.status = 404;

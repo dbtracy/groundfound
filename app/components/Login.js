@@ -20,20 +20,39 @@ export default class Login extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <View style={styles.container}>
-          <View style={styles.logoContainer}>
-            <Image style={styles.logo} source={logo} />
-            <Text style={styles.title}>Account Information</Text>
-          </View>
-          <View style={styles.infoContainer}>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter username/email"
-              placeholderTextColor="rgba(255,255,255,0.8)"
-              keyboardType="email-address"
-            />
-          </View>
-        </View>
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+          <TouchableWithoutFeedback
+            style={styles.container}
+            onPress={Keyboard.dismiss}
+          >
+            <View style={styles.logoContainer}>
+              <View style={styles.logoContainer}>
+                <Image style={styles.logo} source={logo} />
+                <Text style={styles.title}>Account Information</Text>
+              </View>
+              <View style={styles.infoContainer}>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter username/email"
+                  placeholderTextColor="rgba(255,255,255,0.8)"
+                  keyboardType="email-address"
+                  onSubmitEditing={() => this.refs.txtPassword.focus()}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter password"
+                  placeholderTextColor="rgba(255,255,255,0.8)"
+                  returnKeyType="go"
+                  secureTextEntry={true}
+                  ref={"txtPassword"}
+                />
+                <TouchableOpacity style={styles.buttonContainer}>
+                  <Text style={styles.buttonText}>SIGN IN</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     );
   }
@@ -68,10 +87,24 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: 200,
     padding: 20,
-    backgroundColor: "red"
+    backgroundColor: "green",
+    opacity: 0.3
   },
   input: {
     height: 40,
-    backgroundColor: "rgba(255,255,255,0.2)"
+    backgroundColor: "rgba(255,255,255,0.2)",
+    color: "#FFF",
+    marginBottom: 20,
+    paddingHorizontal: 10
+  },
+  buttonContainer: {
+    backgroundColor: "#f7c744",
+    paddingVertical: 15
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "rgb(32, 53, 70)",
+    fontWeight: "bold",
+    fontSize: 18
   }
 });
