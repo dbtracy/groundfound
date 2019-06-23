@@ -1,4 +1,5 @@
 {
   "name": "Honest",
-  "displayName": "Honest"
+  "displayName": "Honest",
+  "javascript.validate.enable": false
 }

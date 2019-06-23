@@ -4,10 +4,12 @@
 
 import React, { Component } from "react";
 import { AppRegistry } from "react-native";
+import { Provider } from "react-redux";
 import App from "./App";
 import { name as appName } from "./app.json";
 import Splash from "./app/components/Splash";
 import Login from "./app/components/Login";
+import store from "./app/store";
 
 class Main extends Component {
   constructor(props) {
@@ -19,12 +21,12 @@ class Main extends Component {
     setTimeout(() => {
       console.log("Done for 3");
       this.setState({ currentScreen: "Login" });
-    }, 3000);
+    }, 2000);
   }
   render() {
     const { currentScreen } = this.state;
     let mainScreen = currentScreen === "Splash" ? <Splash /> : <Login />;
-    return mainScreen;
+    return <Provider store={store}>{mainScreen}</Provider>;
   }
 }
 
