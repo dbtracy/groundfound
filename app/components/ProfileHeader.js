@@ -5,6 +5,9 @@ import { Divider } from "react-native-elements";
 const headshot = require("../../images/profilepic.png");
 
 export default class ProfileHeader extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <View>
@@ -12,7 +15,9 @@ export default class ProfileHeader extends Component {
         <Image source={headshot} style={styles.profilePic} />
         <View>
           <View style={styles.spacer10} />
-          <Text style={styles.text}>Dan Tracy</Text>
+          <Text style={styles.text}>
+            {this.props.firstName} {this.props.lastName}
+          </Text>
           <Text />
           <Divider style={{ height: 1, backgroundColor: "rgb(32,53,70)" }} />
         </View>

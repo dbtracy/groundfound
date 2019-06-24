@@ -11,6 +11,7 @@ import { name as appName } from "./app.json";
 import Splash from "./app/components/Splash";
 import Login from "./app/components/Login";
 import store from "./app/store";
+import Fire from "./Fire";
 
 class Main extends Component {
   constructor(props) {
