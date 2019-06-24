@@ -7,7 +7,8 @@ export default class Settings extends Component {
     super(props);
     this.state = {
       locationSwitchValue: false,
-      notificationSwitchValue: false
+      notificationSwitchValue: false,
+      luckSwitchValue: false
     };
   }
 
@@ -20,6 +21,12 @@ export default class Settings extends Component {
   onNotificationSwitchChange(value) {
     this.setState({
       notificationSwitchValue: value
+    });
+  }
+
+  onLuckSwitchChange(value) {
+    this.setState({
+      luckSwitchValue: value
     });
   }
 
@@ -66,12 +73,24 @@ export default class Settings extends Component {
           <Text> </Text>
         </View>
         <View style={styles.container}>
-          <Text style={{ fontWeight: "300", fontSize: 20 }}>
-            Share my location
-          </Text>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Icon
+              style={{ paddingRight: 10 }}
+              name="ios-trending-up"
+              size={30}
+            />
+            <Text style={{ fontWeight: "400", fontSize: 20 }}>Enable Luck</Text>
+          </View>
           <Switch
-            value={this.state.switchValue}
-            onValueChange={value => this.onSwitchChange(value)}
+            value={this.state.luckSwitchValue}
+            onValueChange={value => {
+              this.onLuckSwitchChange(value);
+              if (!this.state.luckSwitchValue) {
+                alert(
+                  "CAUTION: Having Luck continuously enabled can consume a significant amount of data"
+                );
+              }
+            }}
           />
         </View>
         <View styles={styles.greyContainer}>

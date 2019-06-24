@@ -99,25 +99,47 @@ class Home extends Component {
             <Image source={quarter} style={styles.logo} />
           </TouchableOpacity>
         </View>
+        <View style={{ height: 50 }} />
         <View style={{ display: "flex" }}>
-          <Text>Pennies: {this.state.pennies}</Text>
-          <Text>Nickels: {this.state.nickels}</Text>
-          <Text>Dimes: {this.state.dimes}</Text>
-          <Text>Quarters: {this.state.quarters}</Text>
-          <Text>
-            Total monies:{" "}
-            {parseInt(this.state.pennies) +
-              5 * parseInt(this.state.nickels) +
-              10 * parseInt(this.state.dimes) +
-              25 * parseInt(this.state.quarters) +
-              100 * parseInt(this.state.singles) +
-              500 * parseInt(this.state.fives) +
-              1000 * parseInt(this.state.tens) +
-              2000 * parseInt(this.state.twenties) +
-              5000 * parseInt(this.state.fifties) +
-              10000 * parseInt(this.state.benjies)}
-          </Text>
-          {/* <Text>{this.props.navigation.params.tom}</Text> */}
+          <View style={styles.textWrap}>
+            <Text style={styles.text}>Pennies: </Text>
+            <Text style={styles.text}>{this.state.pennies}</Text>
+          </View>
+          <View style={styles.spacer10} />
+          <View style={styles.textWrap}>
+            <Text style={styles.text}>Nickels: </Text>
+            <Text style={styles.text}>{this.state.nickels}</Text>
+          </View>
+          <View style={styles.spacer10} />
+          <View style={styles.textWrap}>
+            <Text style={styles.text}>Dimes: </Text>
+            <Text style={styles.text}>{this.state.dimes}</Text>
+          </View>
+          <View style={styles.spacer10} />
+          <View style={styles.textWrap}>
+            <Text style={styles.text}>Quarters:</Text>
+            <Text style={styles.text}>{this.state.quarters}</Text>
+          </View>
+          <View style={styles.spacer10} />
+          <View style={styles.textWrap}>
+            <Text style={styles.text}>Total monies: </Text>
+            <Text style={styles.text}>
+              $
+              {(
+                (parseInt(this.state.pennies) +
+                  5 * parseInt(this.state.nickels) +
+                  10 * parseInt(this.state.dimes) +
+                  25 * parseInt(this.state.quarters) +
+                  100 * parseInt(this.state.singles) +
+                  500 * parseInt(this.state.fives) +
+                  1000 * parseInt(this.state.tens) +
+                  2000 * parseInt(this.state.twenties) +
+                  5000 * parseInt(this.state.fifties) +
+                  10000 * parseInt(this.state.benjies)) /
+                100
+              ).toFixed(2)}
+            </Text>
+          </View>
         </View>
       </View>
     );
@@ -168,5 +190,21 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     flexDirection: "row",
     backgroundColor: "rgba(226,226,226,1)"
+  },
+  text: {
+    display: "flex",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 20
+  },
+  textWrap: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: 10,
+    paddingRight: 10
+  },
+  spacer10: {
+    height: 10
   }
 });

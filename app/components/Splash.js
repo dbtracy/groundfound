@@ -54,7 +54,7 @@ export default class Splash extends Component {
             ]}
           />
         </Animated.View>
-        <Text style={styles.title}>groundFound</Text>
+        <Text style={styles.title}>find something</Text>
       </View>
     );
   }
@@ -68,8 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   title: {
-    fontWeight: "bold",
-    fontSize: 28,
-    color: "white"
+    fontFamily: "Snell Roundhand",
+    fontSize: 45,
+    color: "#f7c744",
+    textAlign: "center",
+    marginTop: 5,
+    opacity: 0.9
   }
 });

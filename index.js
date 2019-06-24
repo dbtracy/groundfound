@@ -1,6 +1,7 @@
 /**
  * @format
  */
+console.disableYellowBox = true;
 
 import React, { Component } from "react";
 import { AppRegistry } from "react-native";
@@ -17,11 +18,9 @@ class Main extends Component {
     this.state = {
       currentScreen: "Splash"
     };
-    console.log("start for 3");
     setTimeout(() => {
-      console.log("Done for 3");
       this.setState({ currentScreen: "Login" });
-    }, 2000);
+    }, 3000);
   }
   render() {
     const { currentScreen } = this.state;

@@ -85,7 +85,7 @@ class DisconnectedLogin extends Component {
             <View style={styles.logoContainer}>
               <View style={styles.logoContainer}>
                 <Image style={styles.logo} source={penny} />
-                <Text style={styles.title}>find something</Text>
+                <Text style={styles.title}>groundFound</Text>
               </View>
               <View style={styles.infoContainer}>
                 <TextInput
@@ -196,7 +196,9 @@ const DashboardTabNavigator = createBottomTabNavigator(
 
 const DashboardStackNavigator = createStackNavigator(
   {
-    DashboardTabNavigator: DashboardTabNavigator
+    DashboardTabNavigator: DashboardTabNavigator,
+    Profile: Profile,
+    Settings: Settings
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
@@ -245,8 +247,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#f7c744",
-    fontFamily: "Snell Roundhand",
     fontSize: 35,
+    fontWeight: "bold",
     textAlign: "center",
     marginTop: 5,
     opacity: 0.9
